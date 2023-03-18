@@ -6,5 +6,11 @@ pluginManagement {
 	}
 }
 rootProject.name = 'blog'
+
+/* application */
 include 'app-blog'
+
+
+/* common (독립) */
+include 'common-mapper'
 
