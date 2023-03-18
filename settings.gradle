@@ -13,4 +13,5 @@ include 'app-blog'
 
 /* common (독립) */
 include 'common-mapper'
+include 'common-rest'
 
