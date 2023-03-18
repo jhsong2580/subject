@@ -11,6 +11,10 @@ rootProject.name = 'blog'
 include 'app-blog'
 
 
+
+/* core */
+include 'core-dto'
+
 /* common (독립) */
 include 'common-mapper'
 include 'common-rest'
