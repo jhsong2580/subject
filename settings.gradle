@@ -10,7 +10,8 @@ rootProject.name = 'blog'
 /* application */
 include 'app-blog'
 
-
+/* system */
+include 'client-core'
 
 /* core */
 include 'core-dto'
