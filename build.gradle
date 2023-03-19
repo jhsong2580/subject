@@ -45,5 +45,26 @@ subprojects {
 
 project(':app-blog') {
 	dependencies {
+		implementation project(':client-kakao')
+		implementation project(':client-core')
+
+		implementation project(':core-dto')
+	}
+}
+
+project(':client-core') {
+	dependencies {
+		implementation project(':core-dto')
+	}
+}
+
+project(':client-kakao') {
+	dependencies {
+		implementation project(':client-core')
+
+		implementation project(':core-dto')
+
+		implementation project(':common-rest')
+		implementation project(':common-mapper')
 	}
 }
