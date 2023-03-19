@@ -49,6 +49,8 @@ project(':app-blog') {
 		implementation project(':client-naver')
 		implementation project(':client-core')
 
+		implementation project(':common-mapper')
+
 		implementation project(':core-dto')
 	}
 }
@@ -79,5 +81,6 @@ project(':client-naver') {
 
 		implementation project(':common-rest')
 		implementation project(':common-mapper')
+		implementation project(':common-utils')
 	}
 }
