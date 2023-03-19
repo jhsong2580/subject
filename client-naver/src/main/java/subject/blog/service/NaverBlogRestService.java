@@ -3,6 +3,7 @@ package subject.blog.service;
 import java.util.Arrays;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +16,7 @@ import subject.blog.dto.NaverBlogListResponseDTO;
 import subject.blog.mapper.NaverBlogListResponseToBlogListResponseMapper;
 import subject.blog.utils.UrlEncoder;
 
+@Order(2)
 @Component
 @RequiredArgsConstructor
 public class NaverBlogRestService implements BlogRestService {

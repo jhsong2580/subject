@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -16,6 +17,7 @@ import subject.blog.dto.BlogRequestDTO;
 import subject.blog.dto.KakaoBlogListResponseDTO;
 import subject.blog.mapper.KakaoBlogListResponseToBlogListResponseMapper;
 
+@Order(1)
 @Component
 @RequiredArgsConstructor
 public class KakaoBlogRestService implements BlogRestService {
