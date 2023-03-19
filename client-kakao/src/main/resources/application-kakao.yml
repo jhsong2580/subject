@@ -1,0 +1,7 @@
+kakao:
+  key: "KakaoAK 7e1c3d53c917a4450aeff99691f0690f"
+  host: "http://dapi.kakao.com"
+  end-points:
+    blog-list-uri: "/v2/search/blog"
+
+
