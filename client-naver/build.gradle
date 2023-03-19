@@ -1,0 +1,17 @@
+bootJar { enabled = false }
+jar { enabled = true }
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+    /* Mapstruct Mapper */
+    implementation "org.mapstruct:mapstruct:1.4.2.Final"
+    annotationProcessor "org.mapstruct:mapstruct-processor:1.4.2.Final"
+
+    /* MockServer */
+    testImplementation 'org.mock-server:mockserver-netty:5.12.0'
+}

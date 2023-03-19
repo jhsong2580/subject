@@ -1,0 +1,8 @@
+naver:
+  client-id: "JoZoMcPfBvy2B3xcYv7W"
+  client-secret: "RDgNJZ4yLE"
+  host: "https://openapi.naver.com"
+  end-points:
+    blog-list-uri: "/v1/search/blog.json"
+
+

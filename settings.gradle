@@ -13,6 +13,7 @@ include 'app-blog'
 /* system */
 include 'client-kakao'
 include 'client-core'
+include 'client-naver'
 
 /* core */
 include 'core-dto'
@@ -20,4 +21,5 @@ include 'core-dto'
 /* common (독립) */
 include 'common-mapper'
 include 'common-rest'
+
 
