@@ -1,5 +1,7 @@
 package subject.blog.config;
 
+import java.util.HashMap;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -27,12 +29,15 @@ public class NaverConfig {
 
     @NotNull
     private final EndPoints endPoints;
-
+    private Map<String, String> authHeaders;
     private String blogListURL;
 
     @PostConstruct
     public void init() {
         blogListURL = this.host + this.endPoints.blogListUri;
+        authHeaders = new HashMap<>();
+        authHeaders.put("X-Naver-Client-Id", this.clientId);
+        authHeaders.put("X-Naver-Client-Secret", this.clientSecret);
     }
 
     public String getBlogListURL() {
