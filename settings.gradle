@@ -14,6 +14,7 @@ include 'app-blog'
 include 'client-kakao'
 include 'client-core'
 include 'client-naver'
+include 'exception-core'
 
 /* core */
 include 'core-dto'
@@ -22,4 +23,5 @@ include 'core-dto'
 include 'common-mapper'
 include 'common-rest'
 include 'common-utils'
+
 
