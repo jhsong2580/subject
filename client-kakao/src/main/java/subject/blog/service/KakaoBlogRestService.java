@@ -44,7 +44,7 @@ public class KakaoBlogRestService implements BlogRestService {
             .build()
             .request(KakaoBlogListResponseDTO.class);
 
-        BlogListResponseDTO blogListResponseDTO = listResponseToDTOMapper.to(request.getBody());
+        BlogListResponseDTO blogListResponseDTO = listResponseToDTOMapper.to(request.getBody(), blogRequestDTO);
 
         return blogListResponseDTO;
     }

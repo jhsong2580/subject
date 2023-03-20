@@ -45,6 +45,6 @@ public class NaverBlogRestService implements BlogRestService {
             .build()
             .request(NaverBlogListResponseDTO.class);
 
-        return listResponseToDTOMapper.to(request.getBody());
+        return listResponseToDTOMapper.to(request.getBody(), blogRequestDTO);
     }
 }

@@ -12,5 +12,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BlogSearchListResponseForm {
+
     private List<BlogSearchResponseForm> documents;
+    private int currentPage;
+    private int pageSize;
+    private long total;
 }

@@ -14,4 +14,7 @@ import lombok.NoArgsConstructor;
 public class NaverBlogListResponseDTO {
 
     private List<NaverBlogResponseDTO> items;
+    private int total;
+    private int start;
+    private int display;
 }

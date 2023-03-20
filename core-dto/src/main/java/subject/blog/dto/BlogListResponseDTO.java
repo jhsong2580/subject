@@ -10,4 +10,7 @@ import lombok.Getter;
 @Builder
 public class BlogListResponseDTO {
     private List<BlogResponseDTO> documents;
+    private int currentPage;
+    private int pageSize;
+    private long total;
 }
