@@ -2,3 +2,4 @@ spring:
   profiles:
     group:
       "default": "local, kakao, naver"
+      "test": "local, kakao-test, naver-test"
