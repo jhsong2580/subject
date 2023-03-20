@@ -5,4 +5,8 @@ naver:
   end-points:
     blog-list-uri: "/v1/search/blog.json"
 
+naver-mock:
+  port: 8081
+  end-points:
+    blog-list-uri: "/v1/search/blog.json"
 
