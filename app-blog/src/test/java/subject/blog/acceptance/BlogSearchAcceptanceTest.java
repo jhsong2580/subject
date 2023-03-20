@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import subject.blog.acceptance.utils.MockSettingDTO;
-import subject.blog.acceptance.utils.assertions.BlogAssertionUtils;
 import subject.blog.enums.Sort;
 
 public class BlogSearchAcceptanceTest extends AcceptanceTest {
@@ -37,10 +36,11 @@ public class BlogSearchAcceptanceTest extends AcceptanceTest {
         네이버_블로그내역조회_성공_MockServer_구동();
 
         //when
-        ExtractableResponse<Response> 응답 = Blog_정보조회_요청하기("query", 10, 1, Sort.ACCURACY);
+        ExtractableResponse<Response> 응답 = Blog_정보조회_요청하기("query", 5, 1, Sort.ACCURACY);
 
         //then
-        BlogAssertionUtils.블로그_컨텐츠_조회됨(응답,
+        블로그_컨텐츠_조회됨(응답,
+            5, 1,
             "kakaoContent1",
             "kakaoContent2",
             "kakaoContent3",
@@ -56,10 +56,11 @@ public class BlogSearchAcceptanceTest extends AcceptanceTest {
         네이버_블로그내역조회_성공_MockServer_구동();
 
         //when
-        ExtractableResponse<Response> 응답 = Blog_정보조회_요청하기("query", 10, 1, Sort.ACCURACY);
+        ExtractableResponse<Response> 응답 = Blog_정보조회_요청하기("query", 5, 1, Sort.ACCURACY);
 
         //then
         블로그_컨텐츠_조회됨(응답,
+            5, 1,
             "naverContent1",
             "naverContent2",
             "naverContent3",
@@ -74,7 +75,7 @@ public class BlogSearchAcceptanceTest extends AcceptanceTest {
         startNaverMockServerGetBlogListFail();
 
         //when
-        ExtractableResponse<Response> response = Blog_정보조회_요청하기("query", 10, 1, Sort.ACCURACY);
+        ExtractableResponse<Response> response = Blog_정보조회_요청하기("query", 5, 1, Sort.ACCURACY);
 
         //then
         assertAll(

@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 
 public class BlogAssertionUtils {
 
-    public static void 블로그_컨텐츠_조회됨(ExtractableResponse<Response> 응답, String... 블로그들의_컨텐츠) {
+    public static void 블로그_컨텐츠_조회됨(ExtractableResponse<Response> 응답, int size, int curPage, String... 블로그들의_컨텐츠) {
         String[] contents = 응답.jsonPath()
             .getList("documents.contents")
             .toArray(new String[0]);
@@ -18,6 +18,10 @@ public class BlogAssertionUtils {
         assertAll(
             () -> assertThat(응답.statusCode())
                 .isEqualTo(HttpStatus.OK.value()),
+            () -> assertThat(응답.jsonPath().get("pageSize").toString())
+                .isEqualTo(String.valueOf(size)),
+            () -> assertThat(응답.jsonPath().get("currentPage").toString())
+                .isEqualTo(String.valueOf(curPage)),
             () -> assertThat(contents)
                 .containsExactlyInAnyOrder(블로그들의_컨텐츠)
         );
