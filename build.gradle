@@ -48,6 +48,7 @@ project(':app-blog') {
 		implementation project(':client-kakao')
 		implementation project(':client-naver')
 		implementation project(':client-core')
+		implementation project(':exception-core')
 
 		implementation project(':common-mapper')
 
