@@ -82,6 +82,5 @@ project(':client-naver') {
 
 		implementation project(':common-rest')
 		implementation project(':common-mapper')
-		implementation project(':common-utils')
 	}
 }
