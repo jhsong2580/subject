@@ -53,7 +53,7 @@ project(':app-blog') {
 
 		implementation project(':domain-blog')
 
-		implementation project(':common-mapper')
+		implementation project(':common:common-mapper')
 		implementation project(':core-dto')
 	}
 }
@@ -70,8 +70,8 @@ project(':client:client-kakao') {
 
 		implementation project(':core-dto')
 
-		implementation project(':common-rest')
-		implementation project(':common-mapper')
+		implementation project(':common:common-rest')
+		implementation project(':common:common-mapper')
 	}
 }
 
@@ -82,17 +82,16 @@ project(':client:client-naver') {
 
 		implementation project(':core-dto')
 
-		implementation project(':common-rest')
-		implementation project(':common-mapper')
+		implementation project(':common:common-rest')
+		implementation project(':common:common-mapper')
 	}
 }
 
 project(':domain-blog') {
 	dependencies {
-		implementation project(':cache-core')
-
 		implementation project(':core-dto')
 
-		implementation project(':common-mapper')
+		implementation project(':common:common-cache')
+		implementation project(':common:common-mapper')
 	}
 }
