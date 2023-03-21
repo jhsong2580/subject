@@ -21,9 +21,9 @@ include 'domain-blog'
 
 /* core */
 include 'core-dto'
+include 'cache-core'
 
 /* common (독립) */
 include 'common-mapper'
 include 'common-rest'
-
 

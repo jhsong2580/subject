@@ -53,7 +53,6 @@ project(':app-blog') {
 		implementation project(':domain-blog')
 
 		implementation project(':common-mapper')
-
 		implementation project(':core-dto')
 	}
 }
@@ -89,6 +88,8 @@ project(':client-naver') {
 
 project(':domain-blog') {
 	dependencies {
+		implementation project(':cache-core')
+
 		implementation project(':core-dto')
 
 		implementation project(':common-mapper')
