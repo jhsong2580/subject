@@ -26,7 +26,8 @@ import subject.blog.acceptance.utils.MockSettingDTO;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
 public abstract class AcceptanceTest {
-
+    @Autowired
+    private DatabaseCleanup databaseCleanup;
     @LocalServerPort
     int port;
 
@@ -48,7 +49,10 @@ public abstract class AcceptanceTest {
     protected void init() {
         if (RestAssured.port == RestAssured.UNDEFINED_PORT) {
             RestAssured.port = port;
+            databaseCleanup.afterPropertiesSet();
         }
+        databaseCleanup.execute();
+
         kakaoMockServer = startMockServer(kakaoMockPort);
         naverMockServer = startMockServer(naverMockPort);
     }

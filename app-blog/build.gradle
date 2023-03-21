@@ -7,6 +7,7 @@ dependencies {
 
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     /* 인수테스트 */
     testImplementation 'io.rest-assured:rest-assured:3.3.0'
     /* MockServer */

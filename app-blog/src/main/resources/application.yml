@@ -2,4 +2,4 @@ spring:
   profiles:
     group:
       "default": "local, kakao, naver, blog-domain"
-      "test": "local, kakao-test, naver-test"
+      "test": "local, kakao-test, naver-test, blog-domain-test"
