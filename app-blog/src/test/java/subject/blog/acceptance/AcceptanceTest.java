@@ -15,6 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.test.context.ActiveProfiles;
@@ -28,6 +30,9 @@ import subject.blog.acceptance.utils.MockSettingDTO;
 public abstract class AcceptanceTest {
     @Autowired
     private DatabaseCleanup databaseCleanup;
+    @Autowired
+    private CacheManager cacheManager;
+
     @LocalServerPort
     int port;
 
@@ -52,6 +57,11 @@ public abstract class AcceptanceTest {
             databaseCleanup.afterPropertiesSet();
         }
         databaseCleanup.execute();
+
+        Cache blogs = cacheManager.getCache("blogs");
+        Cache hotKeys = cacheManager.getCache("hotKeys");
+        blogs.clear();
+        hotKeys.clear();
 
         kakaoMockServer = startMockServer(kakaoMockPort);
         naverMockServer = startMockServer(naverMockPort);
