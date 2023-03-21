@@ -45,9 +45,10 @@ subprojects {
 
 project(':app-blog') {
 	dependencies {
-		implementation project(':client-kakao')
-		implementation project(':client-naver')
-		implementation project(':client-core')
+		implementation project(':client:client-kakao')
+		implementation project(':client:client-naver')
+		implementation project(':client:client-core')
+
 		implementation project(':exception-core')
 
 		implementation project(':domain-blog')
@@ -57,15 +58,15 @@ project(':app-blog') {
 	}
 }
 
-project(':client-core') {
+project(':client:client-core') {
 	dependencies {
 		implementation project(':core-dto')
 	}
 }
 
-project(':client-kakao') {
+project(':client:client-kakao') {
 	dependencies {
-		implementation project(':client-core')
+		implementation project(':client:client-core')
 
 		implementation project(':core-dto')
 
@@ -75,9 +76,9 @@ project(':client-kakao') {
 }
 
 
-project(':client-naver') {
+project(':client:client-naver') {
 	dependencies {
-		implementation project(':client-core')
+		implementation project(':client:client-core')
 
 		implementation project(':core-dto')
 

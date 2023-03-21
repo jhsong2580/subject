@@ -11,9 +11,9 @@ rootProject.name = 'blog'
 include 'app-blog'
 
 /* system */
-include 'client-kakao'
-include 'client-core'
-include 'client-naver'
+include 'client:client-kakao'
+include 'client:client-core'
+include 'client:client-naver'
 include 'exception-core'
 
 /* domain */
@@ -26,4 +26,5 @@ include 'cache-core'
 /* common (독립) */
 include 'common-mapper'
 include 'common-rest'
+
 

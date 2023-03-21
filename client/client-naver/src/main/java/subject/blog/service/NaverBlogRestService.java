@@ -3,6 +3,7 @@ package subject.blog.service;
 import java.util.Arrays;
 import java.util.Map;
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
@@ -28,7 +29,6 @@ public class NaverBlogRestService implements BlogRestService {
     public BlogListResponseDTO getBlogs(BlogRequestDTO blogRequestDTO) {
         Map<String, String> authHeaders = naverConfig.getAuthHeaders();
         int start = (blogRequestDTO.getPage() -1) * blogRequestDTO.getSize() +1;
-
 
         ResponseEntity<NaverBlogListResponseDTO> request = restClient
             .uri(naverConfig.getBlogListURL())
