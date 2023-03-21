@@ -90,5 +90,7 @@ project(':client-naver') {
 project(':domain-blog') {
 	dependencies {
 		implementation project(':core-dto')
+
+		implementation project(':common-mapper')
 	}
 }
