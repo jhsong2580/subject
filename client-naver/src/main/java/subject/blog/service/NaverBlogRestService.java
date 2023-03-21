@@ -14,7 +14,6 @@ import subject.blog.dto.BlogListResponseDTO;
 import subject.blog.dto.BlogRequestDTO;
 import subject.blog.dto.NaverBlogListResponseDTO;
 import subject.blog.mapper.NaverBlogListResponseToBlogListResponseMapper;
-import subject.blog.utils.UrlEncoder;
 
 @Order(2)
 @Component
@@ -28,13 +27,12 @@ public class NaverBlogRestService implements BlogRestService {
     @Override
     public BlogListResponseDTO getBlogs(BlogRequestDTO blogRequestDTO) {
         Map<String, String> authHeaders = naverConfig.getAuthHeaders();
-        String queryEncoded = UrlEncoder.encode(blogRequestDTO.getQuery(), "utf-8");
         int start = (blogRequestDTO.getPage() -1) * blogRequestDTO.getSize() +1;
 
 
         ResponseEntity<NaverBlogListResponseDTO> request = restClient
             .uri(naverConfig.getBlogListURL())
-            .queryParam("query", queryEncoded)
+            .queryParam("query", blogRequestDTO.getQuery())
             .queryParam("sort", blogRequestDTO.getSort().getNaver())
             .queryParam("display", String.valueOf(blogRequestDTO.getSize()))
             .queryParam("start", String.valueOf(start))

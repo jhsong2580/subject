@@ -2,10 +2,10 @@ package subject.blog;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
-import static org.springframework.http.HttpHeaders.ACCEPT;
 
 import java.io.IOException;
 import java.net.URI;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,7 +54,9 @@ public class RestClient {
 
         public MethodBuilder uriBuild() {
             Components components = new Components();
-            components.setUri(uriComponentsBuilder.buildAndExpand(uriQueryMap).toUri());
+            components.setUri(uriComponentsBuilder.buildAndExpand(uriQueryMap)
+                .encode(StandardCharsets.UTF_8)
+                .toUri());
             components.setRestTemplate(restTemplate);
             return new MethodBuilder(components);
         }
@@ -86,7 +88,6 @@ public class RestClient {
         private HttpEntityBuilder(Components components) {
             this.components = components;
             httpHeaders = new HttpHeaders();
-            httpHeaders.add(ACCEPT, "application/json");
         }
 
         public HttpEntityBuilder<T> headers(Map<String, String> headers) {
