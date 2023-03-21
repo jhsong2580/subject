@@ -1,0 +1,5 @@
+GET {{host}}/blogs?query=keyword1&page=3&size=10
+
+###
+GET {{host}}/queries
+
