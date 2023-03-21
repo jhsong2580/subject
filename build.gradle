@@ -50,6 +50,8 @@ project(':app-blog') {
 		implementation project(':client-core')
 		implementation project(':exception-core')
 
+		implementation project(':domain-blog')
+
 		implementation project(':common-mapper')
 
 		implementation project(':core-dto')
@@ -82,5 +84,11 @@ project(':client-naver') {
 
 		implementation project(':common-rest')
 		implementation project(':common-mapper')
+	}
+}
+
+project(':domain-blog') {
+	dependencies {
+		implementation project(':core-dto')
 	}
 }

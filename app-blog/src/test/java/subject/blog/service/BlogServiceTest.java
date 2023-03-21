@@ -2,6 +2,8 @@ package subject.blog.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 import java.util.Arrays;
@@ -12,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mapstruct.factory.Mappers;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.context.ApplicationEventPublisher;
 import subject.blog.dto.BlogListResponseDTO;
 import subject.blog.dto.BlogRequestDTO;
 import subject.blog.dto.BlogResponseDTO;
@@ -31,6 +34,8 @@ class BlogServiceTest {
 
     @Mock
     private BlogRestService naverBlogRestService;
+    @Mock
+    private ApplicationEventPublisher eventPublisher;
 
     private BlogRequestDTO blogRequestDTO;
 
@@ -38,7 +43,8 @@ class BlogServiceTest {
     public void init() {
         blogService = new BlogService(
             Arrays.asList(kakaoBlogRestService, naverBlogRestService),
-            mapper
+            mapper,
+            eventPublisher
         );
 
         //테스트에 영향을 주지 않는다.
@@ -57,6 +63,7 @@ class BlogServiceTest {
         BlogResponseDTO blogResponseDTO1 = BlogResponseDTO.builder().title("t1").build();
         BlogResponseDTO blogResponseDTO2 = BlogResponseDTO.builder().title("t2").build();
         BlogResponseDTO blogResponseDTO3 = BlogResponseDTO.builder().title("t3").build();
+        doNothing().when(eventPublisher).publishEvent(any());
         when(kakaoBlogRestService.getBlogs(blogRequestDTO))
             .thenReturn(
                 BlogListResponseDTO.builder()
@@ -86,6 +93,7 @@ class BlogServiceTest {
         BlogResponseDTO blogResponseDTO1 = BlogResponseDTO.builder().title("t1").build();
         BlogResponseDTO blogResponseDTO2 = BlogResponseDTO.builder().title("t2").build();
         BlogResponseDTO blogResponseDTO3 = BlogResponseDTO.builder().title("t3").build();
+        doNothing().when(eventPublisher).publishEvent(any());
         when(kakaoBlogRestService.getBlogs(blogRequestDTO))
             .thenThrow(
                 new RuntimeException("TEST EXCEPTION")
@@ -97,6 +105,7 @@ class BlogServiceTest {
                         Arrays.asList(blogResponseDTO1, blogResponseDTO2, blogResponseDTO3)
                     ).build()
             );
+
 
         //when
         BlogSearchListResponseForm blogSearchListResponseForm = blogService.getBlogInfo(
@@ -116,6 +125,7 @@ class BlogServiceTest {
     @DisplayName("Naver, Kakao 모두 에러가 발생할시 에러를 반환한다.")
     public void ExceptionTest() {
         //given
+        doNothing().when(eventPublisher).publishEvent(any());
         when(kakaoBlogRestService.getBlogs(blogRequestDTO))
             .thenThrow(
                 new RuntimeException("TEST EXCEPTION")
