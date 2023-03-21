@@ -10,8 +10,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import subject.blog.dto.BlogListResponseDTO;
+import subject.blog.dto.BlogRequestDTO;
 import subject.blog.dto.NaverBlogListResponseDTO;
 import subject.blog.dto.NaverBlogResponseDTO;
+import subject.blog.enums.Sort;
 
 class NaverBlogListResponseToBlogListResponseMapperTest {
 
@@ -46,9 +48,14 @@ class NaverBlogListResponseToBlogListResponseMapperTest {
                 Arrays.asList(normalBlogResponseDTO, nullBlogNameResponseDTO,
                     nullDatetimeBlogResponseDTO)
             ).build();
-
+        BlogRequestDTO blogRequestDTO = BlogRequestDTO.builder()
+            .size(10)
+            .page(10)
+            .sort(Sort.ACCURACY)
+            .query("query")
+            .build();
         //when
-        BlogListResponseDTO blogListResponseDTO = mapper.to(naverBlogListResponseDTO);
+        BlogListResponseDTO blogListResponseDTO = mapper.to(naverBlogListResponseDTO, blogRequestDTO);
 
         //then
         assertThat(blogListResponseDTO.getDocuments())

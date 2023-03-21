@@ -10,8 +10,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
 import subject.blog.dto.BlogListResponseDTO;
+import subject.blog.dto.BlogRequestDTO;
 import subject.blog.dto.KakaoBlogListResponseDTO;
 import subject.blog.dto.KakaoBlogResponseDTO;
+import subject.blog.enums.Sort;
 
 class KakaoBlogListResponseToBlogListResponseMapperTest {
 
@@ -48,9 +50,15 @@ class KakaoBlogListResponseToBlogListResponseMapperTest {
                     nullDatetimeKakaoBlogResponseDTO)
             )
             .build();
+        BlogRequestDTO blogRequestDTO = BlogRequestDTO.builder()
+            .size(10)
+            .page(10)
+            .sort(Sort.ACCURACY)
+            .query("query")
+            .build();
 
         //when
-        BlogListResponseDTO blogListResponseDTO = mapper.to(kakaoBlogListResponseDTO);
+        BlogListResponseDTO blogListResponseDTO = mapper.to(kakaoBlogListResponseDTO, blogRequestDTO);
 
 
         //then
