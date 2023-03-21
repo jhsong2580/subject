@@ -26,6 +26,7 @@ public class NaverBlogRestService implements BlogRestService {
     private final NaverConfig naverConfig;
 
     @Override
+    @Cacheable(cacheNames = "blogs", key = "#blogRequestDTO", unless = "#result == null", cacheManager = "cacheManager")
     public BlogListResponseDTO getBlogs(BlogRequestDTO blogRequestDTO) {
         Map<String, String> authHeaders = naverConfig.getAuthHeaders();
         int start = (blogRequestDTO.getPage() -1) * blogRequestDTO.getSize() +1;

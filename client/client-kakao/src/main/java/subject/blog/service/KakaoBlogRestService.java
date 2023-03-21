@@ -28,6 +28,7 @@ public class KakaoBlogRestService implements BlogRestService {
     private final KakaoConfig kakaoConfig;
 
     @Override
+    @Cacheable(cacheNames = "blogs", key = "#blogRequestDTO", unless = "#result == null", cacheManager = "cacheManager")
     public BlogListResponseDTO getBlogs(BlogRequestDTO blogRequestDTO) {
         Map<String, String> headers = new HashMap<>();
         headers.put(HttpHeaders.AUTHORIZATION, kakaoConfig.getKey());
