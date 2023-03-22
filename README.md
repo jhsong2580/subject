@@ -16,7 +16,7 @@
           | size          |  10 ~ 50  |    false     |       10       |
           | sort          |  ACCURACY / RECENCY  |    false     |       ACCURACY       |
       
-    - 응답 (같은 Query, Page, Size, Sort에 대해선 30초마다 갱신)
+    - 응답 (같은 Query, Page, Size, Sort에 대해선 10초마다 갱신)
         - |  column     | description |
           |:---------:|:--------:|
           | documents.title        |   글 제목    |
@@ -37,7 +37,7 @@
 2. 인기 검색어 목록 조회
     - Endpoint : http://localhost:8080/queries
    
-    - 응답 (20초마다 갱신)
+    - 응답 (5초마다 갱신)
         - | cloumn | description |
           |:---------:|:--------:|
           | query  |   키워드    |
