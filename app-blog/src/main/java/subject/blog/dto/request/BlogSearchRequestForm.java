@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Range;
+import subject.blog.annotation.EnumCheck;
 import subject.blog.enums.Sort;
 
 @Getter
@@ -16,7 +17,8 @@ public class BlogSearchRequestForm {
     @NotEmpty(message = "query field must be required")
     private String query;
 
-    private Sort sort;
+    @EnumCheck(message = "Field sort must be either ACCURACY or RECENCY value", enumClass = Sort.class)
+    private String sort;
 
     @Range(min = 1, max = 50, message = "page field is a value between 1 and 50")
     private int page;
@@ -25,10 +27,14 @@ public class BlogSearchRequestForm {
     private int size;
 
     @Builder
-    public BlogSearchRequestForm(String query, Sort sort, Integer page, Integer size) {
+    public BlogSearchRequestForm(String query, String sort, Integer page, Integer size) {
         this.query = query;
-        this.sort = sort != null ? sort : Sort.ACCURACY;
+        this.sort = sort != null ? sort : Sort.ACCURACY.name();
         this.page = page != null ? page : 1;
         this.size = size != null ? size : 10;
+    }
+
+    public Sort getSort() {
+        return Sort.valueOf(this.sort.toUpperCase());
     }
 }

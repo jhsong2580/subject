@@ -27,5 +27,6 @@ include 'core-dto'
 include 'common:common-mapper'
 include 'common:common-rest'
 include 'common:common-cache'
+include 'common:common-validator'
 
 

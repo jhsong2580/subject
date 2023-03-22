@@ -54,6 +54,8 @@ project(':app-blog') {
 		implementation project(':domain-blog')
 
 		implementation project(':common:common-mapper')
+		implementation project(':common:common-validator')
+
 		implementation project(':core-dto')
 	}
 }
