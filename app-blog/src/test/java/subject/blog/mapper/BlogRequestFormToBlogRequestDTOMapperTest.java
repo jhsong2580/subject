@@ -23,7 +23,7 @@ class BlogRequestFormToBlogRequestDTOMapperTest {
             .query("query")
             .size(10)
             .page(1)
-            .sort(Sort.ACCURACY)
+            .sort(Sort.ACCURACY.name())
             .build();
 
         //when
