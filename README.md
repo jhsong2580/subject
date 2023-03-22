@@ -34,7 +34,7 @@
 2. 인기 검색어 목록 조회
     - Endpoint : http://localhost:8080/queries
    
-    - 응답 (1분마다 갱신)
+    - 응답 (20초마다 갱신)
         - | cloumn | description |
           |:---------:|:--------:|
           | query  |   키워드    |

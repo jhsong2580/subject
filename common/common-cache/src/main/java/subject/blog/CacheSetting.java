@@ -31,7 +31,7 @@ public class CacheSetting extends CachingConfigurerSupport {
 
     private ConcurrentMap<Object, Object> getHotKeyCacheMap() {
         return Caffeine.newBuilder()
-            .expireAfterWrite(1, TimeUnit.MINUTES)
+            .expireAfterWrite(20, TimeUnit.SECONDS)
             .maximumSize(1)
             .build()
             .asMap();
