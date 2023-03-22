@@ -22,6 +22,10 @@
         | currentPage        |  현재 페이지    |
         | pageSize        |  한 페이지에서 조회된 개수    |
         | total        |  전체 글 개수    |
+    - 주의사항
+      - Kakao 조회는 Page 50, Size 50으로 정상 검색이 가능하나, Naver는 시작 인덱스가 1000 이상이 될 수 없다. 
+      - Naver 시작 인덱스가 1000 이상이라면, 동일 사이즈로 조회 가능한 최대 Page를 계산하여 반환한다
+        - ex) blogs?query=query&page=50&size=50   -> page=20, size=50인 응답을 반환
 
 2. 인기 검색어 목록 조회
    - Endpoint : http://localhost:8080/queries

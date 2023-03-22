@@ -14,6 +14,7 @@ import subject.blog.config.NaverConfig;
 import subject.blog.dto.BlogListResponseDTO;
 import subject.blog.dto.BlogRequestDTO;
 import subject.blog.dto.NaverBlogListResponseDTO;
+import subject.blog.dto.NaverBlogRequestDTO;
 import subject.blog.mapper.NaverBlogListResponseToBlogListResponseMapper;
 
 @Order(2)
@@ -29,7 +30,8 @@ public class NaverBlogRestService implements BlogRestService {
     @Cacheable(cacheNames = "blogs", key = "#blogRequestDTO", unless = "#result == null", cacheManager = "cacheManager")
     public BlogListResponseDTO getBlogs(BlogRequestDTO blogRequestDTO) {
         Map<String, String> authHeaders = naverConfig.getAuthHeaders();
-        int start = (blogRequestDTO.getPage() -1) * blogRequestDTO.getSize() +1;
+        int start = getStartIndexByPage(blogRequestDTO.getPage(), blogRequestDTO.getSize());
+        int page = getPageByStartIndex(start, blogRequestDTO.getSize());
 
         ResponseEntity<NaverBlogListResponseDTO> request = restClient
             .uri(naverConfig.getBlogListURL())
@@ -44,6 +46,23 @@ public class NaverBlogRestService implements BlogRestService {
             .build()
             .request(NaverBlogListResponseDTO.class);
 
-        return listResponseToDTOMapper.to(request.getBody(), blogRequestDTO);
+        return listResponseToDTOMapper.to(
+            request.getBody(),
+            new NaverBlogRequestDTO(page, blogRequestDTO.getSize())
+        );
+    }
+
+    private int getStartIndexByPage(int page, int size) {
+        int start = (page - 1) * size + 1;
+
+        if (start > 1000) {
+            start = 999 / size * size +1;
+        }
+
+        return start;
+    }
+
+    private int getPageByStartIndex(int index, int size) {
+        return (index - 1) / size + 1;
     }
 }
