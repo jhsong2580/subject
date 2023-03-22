@@ -4,44 +4,49 @@
 ### 프로젝트 설명(app-blog)
 - [app-blog](https://github.com/jhsong2580/subject/blob/main/app-blog/README.md)
 ---
+### 프로젝트 구동 방법
+1. 프로젝트 jar 다운로드
+- https://drive.google.com/file/d/17Cv2lkVz5FO3r-lmiMCiETFSXH62u386/view?usp=share_link
 
-### 기능
-1. 블로그 검색
-    - Endpoint : http://localhost:8080/blogs
-    - QueryParams
-        - | QueryParam | 입력범위 | required | default value |
-          |:----:|:--------:|:-------------:|:----|
-          | query      |  -   |    true     |       -       |
-          | page          |  1 ~ 50  |    false     |       1       |
-          | size          |  10 ~ 50  |    false     |       10       |
-          | sort          |  ACCURACY / RECENCY  |    false     |       ACCURACY       |
+2. jar 실행
+- java -jar app-blog-0.0.1-SNAPSHOT.jar
+3. 기능
+   1. 블로그 검색
+       - Endpoint : http://localhost:8080/blogs
+       - QueryParams
+           - | QueryParam | 입력범위 | required | default value |
+             |:----:|:--------:|:-------------:|:----|
+             | query      |  -   |    true     |       -       |
+             | page          |  1 ~ 50  |    false     |       1       |
+             | size          |  10 ~ 50  |    false     |       10       |
+             | sort          |  ACCURACY / RECENCY  |    false     |       ACCURACY       |
       
-    - 응답 (같은 Query, Page, Size, Sort에 대해선 10초마다 갱신)
-        - |  column     | description |
-          |:---------:|:--------:|
-          | documents.title        |   글 제목    |
-          | documents.contents        |   글 요약    |
-          | documents.contentUrl        |   글 URL    |
-          | documents.blogName        |   블로그 이름    |
-          | documents.thumbNailUrl        |  썸네일. 네이버를 통한 조회는 제공하지 않는다.    |
-          | documents.contentWriteTime        |  글 작성 시간    |
-          | currentPage        |  현재 페이지    |
-          | pageSize        |  한 페이지에서 조회된 개수    |
-          | total        |  전체 글 개수    |
+       - 응답 (같은 Query, Page, Size, Sort에 대해선 10초마다 갱신)
+           - |  column     | description |
+             |:---------:|:--------:|
+             | documents.title        |   글 제목    |
+             | documents.contents        |   글 요약    |
+             | documents.contentUrl        |   글 URL    |
+             | documents.blogName        |   블로그 이름    |
+             | documents.thumbNailUrl        |  썸네일. 네이버를 통한 조회는 제공하지 않는다.    |
+             | documents.contentWriteTime        |  글 작성 시간    |
+             | currentPage        |  현재 페이지    |
+             | pageSize        |  한 페이지에서 조회된 개수    |
+             | total        |  전체 글 개수    |
       
-    - 주의사항
-        - Kakao 조회는 Page 50, Size 50으로 정상 검색이 가능하나, Naver는 시작 인덱스가 1000 이상이 될 수 없다.
-        - Naver 시작 인덱스가 1000 이상이라면, 동일 사이즈로 조회 가능한 최대 Page를 계산하여 반환한다
-            - ex) blogs?query=query&page=50&size=50   -> page=20, size=50인 응답을 반환
+       - 주의사항
+           - Kakao 조회는 Page 50, Size 50으로 정상 검색이 가능하나, Naver는 시작 인덱스가 1000 이상이 될 수 없다.
+           - Naver 시작 인덱스가 1000 이상이라면, 동일 사이즈로 조회 가능한 최대 Page를 계산하여 반환한다
+               - ex) blogs?query=query&page=50&size=50   -> page=20, size=50인 응답을 반환
 
-2. 인기 검색어 목록 조회
-    - Endpoint : http://localhost:8080/queries
+   2. 인기 검색어 목록 조회
+       - Endpoint : http://localhost:8080/queries
    
-    - 응답 (5초마다 갱신)
-        - | cloumn | description |
-          |:---------:|:--------:|
-          | query  |   키워드    |
-          | hits      |   조회수    |
+       - 응답 (5초마다 갱신)
+           - | cloumn | description |
+             |:---------:|:--------:|
+             | query  |   키워드    |
+             | hits      |   조회수    |
 
 ---
 
