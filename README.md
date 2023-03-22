@@ -57,3 +57,7 @@
 3. com.github.ben-manes.caffeine:caffeine:3.0.0 (In-Memory Cache) 
    - 사용 모듈 : common-cache
    - 사용 이유 : In-Memory Cache를 지원하기 위해 사용
+
+4. com.google.guava:guava:30.1.1-jre (CaseFormat)
+   - 사용 모듈 : app-blog
+   - 사용 이유 : Database 에 대한 인수테스트 격리시 Camel Case로의 변경이 필요하여 사용
