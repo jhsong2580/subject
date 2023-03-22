@@ -7,14 +7,15 @@
     - Endpoint : http://localhost:8080/blogs
     - QueryParams
         - | QueryParam | 입력범위 | required | default value |
-                    |:----:|:--------:|:-------------:|:----|
+          |:----:|:--------:|:-------------:|:----|
           | query      |  -   |    true     |       -       |
           | page          |  1 ~ 50  |    false     |       1       |
           | size          |  10 ~ 50  |    false     |       10       |
           | sort          |  ACCURACY / RECENCY  |    false     |       ACCURACY       |
-    - 응답
+      
+    - 응답 (같은 Query, Page, Size, Sort에 대해선 30초마다 갱신)
         - |  column     | description |
-                  |:---------:|:--------:|
+          |:---------:|:--------:|
           | documents.title        |   글 제목    |
           | documents.contents        |   글 요약    |
           | documents.contentUrl        |   글 URL    |
@@ -24,6 +25,7 @@
           | currentPage        |  현재 페이지    |
           | pageSize        |  한 페이지에서 조회된 개수    |
           | total        |  전체 글 개수    |
+      
     - 주의사항
         - Kakao 조회는 Page 50, Size 50으로 정상 검색이 가능하나, Naver는 시작 인덱스가 1000 이상이 될 수 없다.
         - Naver 시작 인덱스가 1000 이상이라면, 동일 사이즈로 조회 가능한 최대 Page를 계산하여 반환한다
@@ -31,9 +33,10 @@
 
 2. 인기 검색어 목록 조회
     - Endpoint : http://localhost:8080/queries
-    - 응답
+   
+    - 응답 (1분마다 갱신)
         - | cloumn | description |
-                 |:---------:|:--------:|
+          |:---------:|:--------:|
           | query  |   키워드    |
           | hits      |   조회수    |
 
