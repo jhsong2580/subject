@@ -5,9 +5,9 @@
 - [app-blog](https://github.com/jhsong2580/subject/blob/main/app-blog/README.md)
 ---
 ### 프로젝트 구동 방법
-1. 프로젝트 jar 다운로드
+1. 프로젝트 jar 다운로드 (아래 두개 중 하나의 링크에서 다운로드 하시면 됩니다.)
 - https://drive.google.com/file/d/17Cv2lkVz5FO3r-lmiMCiETFSXH62u386/view?usp=share_link
-
+- http://naver.me/5Lo1pxcv
 2. jar 실행
 - java -jar app-blog-0.0.1-SNAPSHOT.jar
 3. 기능
