@@ -13,7 +13,7 @@
   - hotKeys
     - 용도 : Top 10 Query를 Cache에 담아 부하가 높은 쿼리가 발생되는것을 감소시킨다.
     - maximum cache size : 1
-    - TTL : 1Min
+    - TTL : 20Sec
 - 사용방법
   - @Cacheable(cacheNames = "{blogs / hotKeys}", key = "#{키이름}", unless = "#result == null", cacheManager = "cacheManager")
     - key : @Cacheable이 붙은 함수의 인자값으로 받아온 객체중, key로 설정할 값을 path로 정해주면 된다. 
