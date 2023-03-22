@@ -1,5 +1,6 @@
-GET {{host}}/blogs?query=keyword1&page=3&size=10
-
+GET {{host}}/blogs?query=keyword2&page=50&size=50&sort=accuracy
+###
+GET {{host}}/blogs?query=keyword2&page=49&size=50
 ###
 GET {{host}}/queries
 
