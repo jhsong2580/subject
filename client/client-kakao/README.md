@@ -5,7 +5,11 @@
 - mapper.* : Kakao Blog API와의 경계에서 사용되는 DTO를 내부 시스템 DTO로 변환해주는 Mapper이다.
 - KakaoSetting : client-kakao 모듈의 @ComponentScan과 KakaoConfig를 Loading해주는 역할을 갖는다.
 
-# 사용된 외부 라이브러리
+### 사용 방법
+- 외부에선 KakaoBlogRestService만 사용한다. 
+- Profile에 "kakao"를 추가하여 Application을 구동시킨다.
+
+### 사용한 외부 라이브러리
 1. Mapstruct의 Mapper를 사용하기위해 적용되었다.
 ```
     implementation "org.mapstruct:mapstruct:1.4.2.Final"
