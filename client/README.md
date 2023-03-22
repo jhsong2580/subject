@@ -1,6 +1,6 @@
 # 외부 API 모듈
 
-- client-core: API의 기본 구성을 정의한다 
+- client-core : API의 기본 구성을 정의한다 
 
 - [client-kakao](https://github.com/jhsong2580/subject/blob/main/client/client-kakao/README.md) : Mapstruct의 Mapper를 사용하기 위한 기본 interface 설정
 

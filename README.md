@@ -1,5 +1,7 @@
 # 블로그 검색 서비스
 
+---
+
 ### 기능
 1. 블로그 검색
     - Endpoint : http://localhost:8080/blogs
@@ -50,3 +52,17 @@
 
 - [domain모듈](https://github.com/jhsong2580/subject/blob/main/domain-blog/README.md)
     - Database에 CRUD를 하기 위해 DB 서비스 로직 모듈을 가져온다.
+
+---
+### 사용한 외부 라이브러리
+1. org.mapstruct:mapstruct:1.4.2.Final (Mapper)
+   - 사용 모듈 : app-blog, client-kakao, client-naver, domain-blog
+   - 사용 이유 : 각 모듈의 DTO와 공통 DTO 사이의 변환을 지원
+
+2. org.mock-server:mockserver-netty:5.12.0 (Mock Server)
+   - 사용 모듈 : app-blog, client-kakao, client-naver
+   - 사용 이유 : 인수테스트, RestAPI테스트시 실제 Endpoint가 아닌 MockServer의 Endpoint로 테스트
+
+3. com.github.ben-manes.caffeine:caffeine:3.0.0 (In-Memory Cache) 
+   - 사용 모듈 : common-cache
+   - 사용 이유 : In-Memory Cache를 지원하기 위해 사용
