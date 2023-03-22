@@ -31,6 +31,7 @@
        | query  |   키워드    |
        | hits      |   조회수    |
 
+---
 ### 연관 모듈 
 - client모듈 : 외부 API에 대한 설정, 서비스로직을 갖는다. 
   - client-core
