@@ -37,20 +37,16 @@
 
 ---
 ### 연관 모듈 
-- client모듈 : 외부 API에 대한 설정, 서비스로직을 갖는다. 
-  - client-core
-  - [client-kakao](https://github.com/jhsong2580/subject/blob/main/client/client-kakao/README.md)
-  - [client-naver](https://github.com/jhsong2580/subject/blob/main/client/client-naver/README.md)
+- [client모듈](https://github.com/jhsong2580/subject/blob/main/client/README.md)
+  - 외부 API에 대한 설정, 서비스로직을 갖는다.
+- [Exception모듈](https://github.com/jhsong2580/subject/blob/main/exception-core/README.md) 
+  - 사용자 요청에 대한 에러가 발생했을때, Controller Advice를 통해 사용자에게 응답을 반환한다 
 
-- Exception모듈 : 사용자 요청에 대한 에러가 발생했을때, Controller Advice를 통해 사용자에게 응답을 반환한다 
-  - [exception-core](https://github.com/jhsong2580/subject/blob/main/exception-core/README.md)
+- [common모듈](https://github.com/jhsong2580/subject/blob/main/common/README.md) : 
+  - 공통으로 사용하는 기능을 가져온다
 
-- Common모듈 : 공통으로 사용하는 기능을 가져온다
-  - [common-mapper](https://github.com/jhsong2580/subject/blob/main/common/common-mapper/README.md)
-  - [common-validator](https://github.com/jhsong2580/subject/blob/main/common/common-validator/README.md)
+- [DTO모듈](https://github.com/jhsong2580/subject/blob/main/core-dto/README.md) : 
+  - 다른 모듈과 통신하기 위한 공통 DTO 설정을 가져온다. 
 
-- DTO모듈 : 다른 모듈과 통신하기 위한 공통 DTO 설정을 가져온다. 
-  - [common-mapper](https://github.com/jhsong2580/subject/blob/main/core-dto/README.md)
-
-- Domain 모듈 : Database에 CRUD를 하기 위해 DB 서비스 로직 모듈을 가져온다. 
-  - [domain-blog](https://github.com/jhsong2580/subject/blob/main/domain-blog/README.md)
+- [domain모듈](https://github.com/jhsong2580/subject/blob/main/domain-blog/README.md) 
+  - Database에 CRUD를 하기 위해 DB 서비스 로직 모듈을 가져온다.
